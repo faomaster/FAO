@@ -3,13 +3,14 @@ Title: Official FAO Package
 Version: 0.1
 Author: Benjamin P, Matthew S
 Description: Useful functions to be used by the FAO which will facilitate day to day operations. Function types 
-    include string manipulation, data wrangling, summary statistics and more.
+ include string manipulation, data wrangling, summary statistics and more.
 License: None
+URL: https://github.com/faouser1/FAO
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
 Imports:
-    dplyr,
-    tidyr,
-    magrittr,
-    stringr
+ dplyr,
+ tidyr,
+ magrittr,
+ stringr

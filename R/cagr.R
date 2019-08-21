@@ -22,7 +22,7 @@
 cagr <- function(x,
                  matrix = FALSE,
                  time = NULL){
-if(length(x) != length(time)) stop("Length of x and time must be equal.")
+  if(length(x) != length(time) & !is.null(time)) stop("Length of x and time must be equal.")
   len <- length(x)
   if(matrix == F){
     output <- ((x[len]/x[1]) ^ (1/(len-1)) - 1)

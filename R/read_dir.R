@@ -18,14 +18,20 @@ read_dir <- function(path = getwd(), type = c("csv")){
                   "csv", "csv", "xlsx"), ncol = 2)
   if(!(all(type %in% map[,1]))) stop("A file type specified is not supported")
   fileNames <- list.files(path)
+
   read_type <- function(li, path, type){
     if(length(type) == 0) return(li)
     typeFiles <- fileNames[grepl(paste0("(.)+\\.", type[1]), fileNames)]
     tblList <- lapply(typeFiles, function(f){
-      match.fun(paste0("read.", map[map[,1] == type[1]][2]))(paste0(path, "/", f))})
+      if(type[1] == "xlsx"){
+        xlsx::read.xlsx(paste0(path, "/", f), 1)
+        } else {
+          match.fun(paste0("read.", map[map[,1] == type[1]][2]))(paste0(path, "/", f))}
+      })
     names(tblList) <- typeFiles
     tblList <- c(li, tblList)
     read_type(tblList, path, type[-1])
   }
+
   return(read_type(list(), path, type))
 }

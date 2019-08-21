@@ -22,17 +22,13 @@
 cagr <- function(x,
                  matrix = FALSE,
                  time = NULL){
-
-  if(length(x) != length(time)) stop("Length of x and time must be equal.")
-
+if(length(x) != length(time)) stop("Length of x and time must be equal.")
   len <- length(x)
-
   if(matrix == F){
     output <- ((x[len]/x[1]) ^ (1/(len-1)) - 1)
     return(output)
 
   } else {
-
     mat <- matrix(NA, len-1, len-1)
     for(i in 1:(len-1)){
       for(j in (1+i):len){

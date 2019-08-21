@@ -12,4 +12,5 @@ Imports:
     dplyr,
     tidyr,
     magrittr,
-    stringr
+    stringr,
+	xlsx
